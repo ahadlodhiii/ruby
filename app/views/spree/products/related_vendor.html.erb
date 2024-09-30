@@ -1,0 +1,8 @@
+<% if vendor_products(@product.id, @product.vendor_id).any? %>
+  <div id="vendor-products">
+    <div class="product-details-vendor">
+      <p class="font-weight-bold text-center text-uppercase product-details-carousel-text"><%= Spree.t('pdp.more_from') %> <%= @product.vendor.name %></p>
+      <%= render 'spree/shared/carousel_4_products', id: 'related-products-carousel', products: @vendor_products %>
+    </div>
+  </div>
+<% end %>

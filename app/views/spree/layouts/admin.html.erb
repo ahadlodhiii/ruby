@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head data-hook="admin_inside_head">
+    <%= render partial: 'spree/admin/shared/head' %>
+  </head>
+
+  <body class="admin">
+
+    <%#-------------------------------------------------%>
+    <%# Loading progress bars                           %>
+    <%#-------------------------------------------------%>
+    <div id="progress">
+      <div class="alert alert-info alert-progress">
+        <div class="spinner"><%= Spree.t(:loading) %>...</div>
+        <div class="progress-message"><%= Spree.t(:loading) %>...</div>
+      </div>
+    </div>
+
+    <%#-------------------------------------------------%>
+    <%# Header navbar                                   %>
+    <%#-------------------------------------------------%>
+    <%= render partial: 'spree/admin/shared/header' %>
+
+    <%#-------------------------------------------------%>
+    <%# Main content                                    %>
+    <%#-------------------------------------------------%>
+    <div id="wrapper" class="container-fluid <%= wrapper_classes %>">
+      <div class="row">
+
+        <%#-------------------------------------------------%>
+        <%# Sidebar                                         %>
+        <%#-------------------------------------------------%>
+        <aside
+          class="<%= main_sidebar_classes %> sidebar position-fixed d-flex justify-content-between flex-column px-0"
+          id="main-sidebar"
+          data-hook="admin_tabs">
+          <%= render partial: 'spree/admin/shared/main_menu' %>
+
+          <%= render partial: 'spree/admin/shared/version' %>
+        </aside>
+
+        <%#-------------------------------------------------%>
+        <%# Content                                         %>
+        <%#-------------------------------------------------%>
+        <main class="<%= main_part_classes %> main" id="main-part" role="main">
+
+          <% vendor = current_spree_vendor %>
+          <% if vendor.present? && vendor.stripe_user_id.present? %>
+            <p class="alert alert-success">Your stripe account is connected. <%= link_to 'Disconnect', admin_vendor_stripe_disconnect_path %></p>
+            <p class="">Your account id is: <mark><%= vendor.stripe_user_id %></mark></p>
+          <% elsif vendor.present? && vendor.stripe_user_id.blank? %>
+            <div class="alert alert-danger">You cannot sell until your Stripe account is
+              connected. <%= link_to 'Connect My Stripe', Stripe::OAuth.authorize_url({redirect_uri: Rails.application.secrets.stripe[:redirect_uri], state: "v_id:" + vendor.id.to_s}, {express:true}) %></div>
+          <% end %>
+
+          <%#-------------------------------------------------%>
+          <%# Content header (page title/actions)             %>
+          <%#-------------------------------------------------%>
+          <%= render partial: 'spree/admin/shared/content_header' %>
+
+          <div class="row">
+            <%#-------------------------------------------------%>
+            <%# Alerts                                          %>
+            <%#-------------------------------------------------%>
+            <%= flash_alert(flash) %>
+
+            <%#-------------------------------------------------%>
+            <%# Main content                                    %>
+            <%#-------------------------------------------------%>
+            <div class="<%= content_for?(:sidebar) ? 'with-sidebar col-8 col-md-9' : 'col-12'  %>" id="content" data-hook>
+              <%= render partial: 'spree/admin/shared/table_filter' if content_for?(:table_filter)%>
+              <%= yield %>
+            </div>
+
+            <%#-------------------------------------------------%>
+            <%# Inner aside                                     %>
+            <%#-------------------------------------------------%>
+            <% if content_for?(:sidebar) %>
+              <div class="col-4 col-md-3">
+                <%= render partial: 'spree/admin/shared/sidebar' %>
+              </div>
+            <% end %>
+          </div>
+
+
+        </main>
+      </div>
+    </div>
+
+    <%#-------------------------------------------------%>
+    <%# Insert footer scripts here                      %>
+    <%#-------------------------------------------------%>
+    <div data-hook="admin_footer_scripts"></div>
+  </body>
+</html>

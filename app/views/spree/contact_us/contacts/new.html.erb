@@ -1,0 +1,36 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @contact } %>
+
+<div class="contact-us">
+	<div class="col-lg-6 offset-lg-3">
+		<h1 class="spree-header spree-mb-large spree-mt-large"><%= Spree.t('spree_contact_us.header') %></h1>
+		<%= form_for @contact, url: contact_us_path,  html: { novalidate: '' } do |f| %>
+			<div class="form-group mb-4">
+				<p class="form-group checkout-content-inner-field">
+					<%= f.text_field :name, class: 'required form-control spree-flat-input col-12 mt-3 mb-1 mb-lg-2', placeholder: true %>
+				</p>
+			</div>
+			<div class="form-group mb-4">
+				<p class="form-group checkout-content-inner-field">
+					<%= f.email_field :email, class: 'required form-control spree-flat-input col-12 mt-3 mb-1 mb-lg-2', placeholder: true %>
+				</p>
+			</div>
+			<div class="form-group mb-4">
+				<p class="form-group checkout-content-inner-field">
+					<%= f.text_field :subject, class: 'required form-control spree-flat-input col-12 mt-3 mb-1 mb-lg-2', placeholder: true %>
+				</p>
+			</div>
+			<div class="form-group mb-4">
+				<p class="form-group checkout-content-inner-field">
+					<%= f.text_area :message, class: 'required form-control spree-flat-input col-12 mt-3 mb-3', rows: 4, placeholder: Spree.t('spree_contact_us.message_placeholder') %>
+				</p>
+			</div>
+			<div class="text-center mt-lg-1 mb-4">
+				<%= f.submit Spree.t(:send), alt: Spree.t(:send), id: 'contact_us_contact_submit', title: Spree.t(:send), class: 'btn btn-primary btn-block spree-btn mb-5' %>
+			</div>
+			<p>Please don't hesitate to get in touch - we'd love to hear from you! <br> <br>
+					If you have any feedback, questions or just want to say hello! <br> <br>
+					Customer service & support:<a href="mailto:info@stitchgrab.com"> info@stitchgrab.com</a <br>
+			</p>
+		<% end %>
+	</div>
+</div>

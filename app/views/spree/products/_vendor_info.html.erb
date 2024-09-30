@@ -1,0 +1,16 @@
+<% if @product.vendor %>
+  <div id="product-vendor-info">
+    <% @vendor_info = capture do %>
+      <%# if @product.vendor.image %>
+        <%#= image_tag main_app.url_for(@product.vendor.image.url(:small)), class: 'product-details-vendor-img d-block' %>
+      <%# end %>
+      <h4 class="product-details-vendor-name d-flex align-items-center mt-3 mb-4">
+        <%= @product.vendor.name %>
+        <% if respond_to?(:vendor_path) %>
+          <%= icon(name: 'arrow-right', classes: "vendor-icon ml-2", width: 18, height: 20) %>
+        <% end %>
+      </h4>
+    <% end %>
+    <%= link_to_if respond_to?(:vendor_path), @vendor_info, respond_to?(:vendor_path) && vendor_path(@product.vendor), class: "vendor-link d-inline-block" %>
+  </div>
+<% end %>

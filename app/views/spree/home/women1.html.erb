@@ -1,0 +1,36 @@
+<% @body_id = 'home' %>
+
+<div class="homepage-hero-image mb-3 position-relative main-margin">
+  <img class="lazyload hero-image position-absolute"
+       data-src="<%= asset_path('homepage/second_banner.jpg') %>"
+       data-srcset="<%= image_source_set('homepage/second_banner') %>"/>
+</div>
+
+<div class="container">
+  <div class="d-flex justify-content-center position-sticky sticky-top-90px taxon-subcategories-wrapper">
+    <div class="py-1 text-uppercase d-flex overflow-x taxon-subcategories">
+      <a class="pt-4 pb-2 mb-2 " href="/t/women">All</a>
+      <% spree_navigation_data[1]['items'].each do |item| %>
+        <a class="pt-4 pb-2 mb-2 pl-4 pt-4 pb-2" href="<%= item[:url] %>"><%= item[:title] %></a>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <% spree_navigation_data[1]['items'].each do |item| %>
+      <div class="col-12 col-lg-6">
+        <%= link_to item[:url] do %>
+          <div class="homepage-bottom-box text-center mb-3">
+            <img class="w-100 lazyload"
+                 data-srcset="<%= image_source_set(item[:image]) %>"
+                 alt="<%= item[:title] %>"/>
+            <div class="homepage-bottom-box-inner">
+              <div class="homepage-bottom-box-inner-small-text">
+                <%= item[:title] %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

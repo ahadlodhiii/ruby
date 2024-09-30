@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500"
+    />
+    
+    <title>Stitchgrab</title>
+
+    <script type="text/javascript">
+        (function(c,a){if(!a.__SV){var b=window;try{var d,m,j,k=b.location,f=k.hash;d=function(a,b){return(m=a.match(RegExp(b+"=([^&]*)")))?m[1]:null};f&&d(f,"fpState")&&(j=JSON.parse(decodeURIComponent(d(f,"fpState"))),"fpeditor"===j.action&&(b.sessionStorage.setItem("_fpcehash",f),history.replaceState(j.desiredHash||"",c.title,k.pathname+k.search)))}catch(n){}var l,h;window.freshpaint=a;a._i=[];a.init=function(b,d,g){function c(b,i){var a=i.split(".");2==a.length&&(b=b[a[0]],i=a[1]);b[i]=function(){b.push([i].concat(Array.prototype.slice.call(arguments,
+            0)))}}var e=a;"undefined"!==typeof g?e=a[g]=[]:g="freshpaint";e.people=e.people||[];e.toString=function(b){var a="freshpaint";"freshpaint"!==g&&(a+="."+g);b||(a+=" (stub)");return a};e.people.toString=function(){return e.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove people group page alias ready addEventProperties addInitialEventProperties removeEventProperty addPageviewProperties".split(" ");
+            for(h=0;h<l.length;h++)c(e,l[h]);var f="set set_once union unset remove delete".split(" ");e.get_group=function(){function a(c){b[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));e.push([d,call2])}}for(var b={},d=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<f.length;c++)a(f[c]);return b};a._i.push([b,d,g])};a.__SV=1.4;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof FRESHPAINT_CUSTOM_LIB_URL?
+            FRESHPAINT_CUSTOM_LIB_URL:"//perfalytics.com/static/js/freshpaint.js";(d=c.getElementsByTagName("script")[0])?d.parentNode.insertBefore(b,d):c.head.appendChild(b)}})(document,window.freshpaint||[]);
+        freshpaint.init("49de13bb-6aa7-4557-8ebe-75c19b35e307");
+        freshpaint.page();
+    </script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="compiled-styles.css" /> -->
+    
+    <!-- <link rel="stylesheet" type="text/css" href="compiled-styles.css" /> -->
+    <%= stylesheet_link_tag 'tailwind', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'spree/frontend/tailwind', media: 'all',  'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'spree/frontend/compiled-styles.css', 'data-turbolinks-track': 'reload' %>
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+    <!-- This only removes default margins in our renderer iframe, you may remove -->
+    <div class="">
+      <%= render partial: 'spree/shared/header' %>
+      <div id="overlay" class="overlay hide-on-esc"></div>
+      <div data-hook>
+        <main id="content" data-hook>
+          <%= flash_messages %>
+          <%= yield %>
+        </main>
+
+        <%= yield :templates %>
+      </div>
+
+      <div class="relative flex flex-wrap h-full w-full items-start overflow-clip bg-white  " >
+        <div class="flex flex-row w-full  h-28 flex-shrink-0 items-center pl-12  mt-28" >
+          <div class="flex flex-col w-96 font-excluded-italic inset-0  items-center self-stretch h-28 text-5xl tracking-[-0.32px] leading-[normal] text-black drop-shadow-lg uppercase" >
+            <p><span class="italic">Popular Brands</span></p>
+          </div>
+        </div>
+        <div class="flex flex-row w-full h-[400px] px-2">
+
+          <div class="flex flex-col w-1/3 h-full flex-shrink-0 items-center justify-center" >
+            
+              <!-- <div class="flex flex-col items-center pr-14"> -->
+                <%= image_tag 'homepage/UGG_logo1.svg', class: "h-20 w-60 flex-shrink-0" %>
+                
+              <!-- </div> -->
+          </div>
+          <div class="flex flex-col w-1/3  h-full flex-shrink-0 items-start" >
+            <%= image_tag 'homepage/bg-untitled-design-21.png', class: "relative h-[260px] w-[459px] flex-shrink-0" %>
+                
+            
+          </div>
+          <div class="flex flex-col w-1/3 h-full flex-shrink-0 items-center justify-center" >
+            <!-- <div class="flex flex-col items-center pr-14"> -->
+              <%= image_tag 'homepage/untitled-design-72.png', class: "relative h-[53px] w-[482px] flex-shrink-0" %>
+             
+            <!-- </div> -->
+          </div>
+
+          
+        </div>
+
+        <div class="flex flex-row w-full h-[400px] px-2">
+          <div class="flex flex-col w-1/3 items-start  inset-0 flex max-h-full max-w-full bg-no-repeat" >
+            <%= image_tag 'homepage/untitled-design-71.png', class: "h-[500px] w-[575px] relative bottom-[6rem]" %>
+          </div>
+          <div class="flex flex-col w-1/3 h-96 flex-shrink-0 flex-col items-center" >
+            <%= image_tag 'homepage/bg-untitled-design-211.png', class: "w-[410px] h-[244px]" %>
+          </div>
+          <div class="flex flex-col w-1/3  flex-shrink-0 items-start" >
+
+            <%= image_tag 'homepage/sandal.svg', class: "-mb-11 h-[244px] w-[500px] flex-shrink-0" %>
+            <!-- <object
+              data="<%#= asset_url('/homepage/sandal.svg') %>"
+              class="-mb-11 h-[500px] w-[500px] flex-shrink-0"
+            ></object> -->
+          </div>
+
+          
+        </div>
+          
+          
+      </div>
+
+    </div>
+  </body>
+</html>
+
