@@ -1,0 +1,55 @@
+default:
+  navigation:
+    - title: Men
+      subtitle: Categories
+      url: /men
+      items:
+        - :title: Casual
+          :url: /t/men/casual
+          :image: 'men/men_causal'
+        - :title: Street
+          :url: /t/men/street
+          :image: 'men/men_street'
+        - :title: Active
+          :url: /t/men/active
+          :image: 'men/men_active'
+        - :title: Kicks
+          :url: /t/men/kicks
+          :image: 'men/men_kicks'
+    - title: Women
+      subtitle: Categories
+      url: /women
+      items:
+        - :title: Active
+          :url: /t/women/active
+          :image: 'women/women_active'
+        - :title: Chic
+          :url: /t/women/chic
+          :image: 'women/women_chic'
+        - :title: Bohemian
+          :url: /t/women/bohemian
+          :image: 'women/women_bohemian'
+        - :title: Casual
+          :url: /t/women/casual
+          :image: 'women/women_causal'
+        - :title: Sexy
+          :url: /t/women/sexy
+          :image: 'women/women_sexy'
+        - :title: Shoes
+          :url: /t/women/shoes
+          :image: 'women/women_shoes'
+        - :title: Street
+          :url: /t/women/street
+          :image: 'women/women_street'
+        - :title: Curve
+          :url: /t/women/curve
+          :image: 'women/women_curve'
+        - :title: Vintage
+          :url: /t/women/vintage
+          :image: 'women/women_vintage'
+        - :title: Lingerie
+          :url: /t/women/lingerie
+          :image: 'women/women_lingerie'
+        - :title: Sexy Casual
+          :url: /t/women/sexy-casual
+          :image: 'women/women_sexy_causal'

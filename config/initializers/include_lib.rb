@@ -1,0 +1,1 @@
+Dir["#{Rails.root}/lib/active_merchant/billing/*.rb"].each { |file| require file }
