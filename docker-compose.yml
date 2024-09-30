@@ -1,0 +1,36 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+    # volumes:
+    #   - .:/stg
+    #   - /stg/node_modules 
+    #   - ./tmp:/stg/tmp
+    #   - ./public:/stg/public
+
+    # depends_on:
+    #   - db
+    #entrypoint: ["sh", "/usr/bin/entrypoint.sh"]
+    command: bash -c "rails server -b 0.0.0.0"
+    #command: bash -c "yarn install --no-progress && bundle exec rake assets:clean && bundle exec rake assets:precompile && bundle exec rails s -b '0.0.0.0'"
+    tty: true
+
+  # db:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_USER: myuser
+  #     POSTGRES_PASSWORD: mypassword
+  #     POSTGRES_DB: mydatabase
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
